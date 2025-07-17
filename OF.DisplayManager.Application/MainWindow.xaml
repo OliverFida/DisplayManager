@@ -1,0 +1,48 @@
+﻿<Window x:Class="OF.DisplayManager.Application.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:OF.DisplayManager.Application"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="500" Width="900" ResizeMode="NoResize">
+    <StackPanel Orientation="Vertical">
+        <!-- Current Configuration -->
+        <GroupBox Header="Current Configuration" Margin="0,0,0,10">
+            <StackPanel Orientation="Vertical">
+                <StackPanel Orientation="Horizontal" Margin="0,0,0,5">
+                    <Button x:Name="RefreshCurrentButton" Content="Refresh" Click="RefreshCurrentButton_Click" Height="26" Padding="10,0,10,0" />
+                </StackPanel>
+                <!-- Config Infos -->
+                <DataGrid ItemsSource="{Binding CurrentDisplayConfigs, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}" IsReadOnly="True" />
+            </StackPanel>
+        </GroupBox>
+
+        <!-- Save / Load Configuration -->
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+
+            <!-- Save Configuration -->
+            <GroupBox Header="Save Configuration" Grid.Column="0" Margin="0,0,10,0">
+                <StackPanel Orientation="Horizontal">
+                    <TextBox Width="250" Height="26" Margin="0,0,5,0" />
+                    <Button Content="Save" Padding="10,0,10,0" Height="26" />
+                </StackPanel>
+            </GroupBox>
+
+            <!-- Load Configuration -->
+            <GroupBox Header="Load Configuration" Grid.Column="1">
+                <StackPanel Orientation="Vertical">
+                    <ListBox ItemsSource="{Binding StoredDisplayConfigs, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}" Margin="0,0,0,5" />
+                    <StackPanel Orientation="Horizontal">
+                        <Button Content="Apply" Padding="10,0,10,0" Margin="0,0,5,0" Height="26" />
+                        <Button Content="Delete" Padding="10,0,10,0" Height="26" />
+                    </StackPanel>
+                </StackPanel>
+            </GroupBox>
+        </Grid>
+    </StackPanel>
+</Window>
