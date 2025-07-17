@@ -32,27 +32,6 @@ namespace OF.DisplayManager.Application
 
         public static List<DisplayConfiguration> GetCurrentDisplayConfigurations()
         {
-            List<DisplayConfiguration> displayConfigurations = new List<DisplayConfiguration>();
-
-            foreach (Screen screen in Screen.AllScreens)
-            {
-                DisplayConfiguration config = new DisplayConfiguration {
-                    DisplayName = screen.DeviceName,
-                    PosX = screen.Bounds.X,
-                    PosY = screen.Bounds.Y,
-                    Width = screen.Bounds.Width,
-                    Height = screen.Bounds.Height,
-                    IsPrimary = screen.Primary
-                };
-
-                displayConfigurations.Add(config);
-            }
-
-            return displayConfigurations;
-        }
-
-        public static List<DisplayConfiguration> GetCurrentDisplayConfigurationsNEW()
-        {
             List<DisplayConfiguration> displayConfigs = new List<DisplayConfiguration>();
             DISPLAY_DEVICE device = new DISPLAY_DEVICE();
             device.cb = Marshal.SizeOf(device);

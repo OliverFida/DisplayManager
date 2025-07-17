@@ -6,12 +6,12 @@ namespace OF.DisplayManager.Application
     {
         public static readonly string APPDATA_PATH = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "Oliver Fida", "DisplayManager");
 
-        public static readonly string CONFIGS_PATH = Path.Combine(APPDATA_PATH, "configs");
+        public static readonly string PROFILES_PATH = Path.Combine(APPDATA_PATH, "profiles");
 
-        private static readonly ConfigStorage _configStorage = new ConfigStorage();
-        public static ConfigStorage ConfigStorage
+        private static readonly ProfileStorage _profileStorage = new ProfileStorage();
+        public static ProfileStorage ProfileStorage
         {
-            get => _configStorage;
+            get => _profileStorage;
         }
     }
 }

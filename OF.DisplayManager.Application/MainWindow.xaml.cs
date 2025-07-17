@@ -20,5 +20,10 @@ namespace OF.DisplayManager.Application
         {
             VM.RefreshCurrentConfig();
         }
+
+        private void SaveProfileButton_Click(object sender, RoutedEventArgs e)
+        {
+            VM.StoreCurrentConfigsAsProfile();
+        }
     }
 }

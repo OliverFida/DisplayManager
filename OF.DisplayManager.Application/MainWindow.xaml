@@ -5,6 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:OF.DisplayManager.Application"
         mc:Ignorable="d"
+        d:DataContext="{d:DesignInstance Type={x:Type local:MainViewModel}}"
         Title="MainWindow" Height="500" Width="900" ResizeMode="NoResize">
     <StackPanel Orientation="Vertical">
         <!-- Current Configuration -->
@@ -18,25 +19,25 @@
             </StackPanel>
         </GroupBox>
 
-        <!-- Save / Load Configuration -->
+        <!-- Save / Load Profile -->
         <Grid>
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="Auto" />
                 <ColumnDefinition Width="*" />
             </Grid.ColumnDefinitions>
 
-            <!-- Save Configuration -->
-            <GroupBox Header="Save Configuration" Grid.Column="0" Margin="0,0,10,0">
+            <!-- Save Profile -->
+            <GroupBox Header="Save Profile" Grid.Column="0" Margin="0,0,10,0">
                 <StackPanel Orientation="Horizontal">
-                    <TextBox Width="250" Height="26" Margin="0,0,5,0" />
-                    <Button Content="Save" Padding="10,0,10,0" Height="26" />
+                    <TextBox Text="{Binding NewProfileName, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Width="250" Height="26" Margin="0,0,5,0" />
+                    <Button x:Name="SaveProfileButton" Content="Save" Click="SaveProfileButton_Click" Padding="10,0,10,0" Height="26" />
                 </StackPanel>
             </GroupBox>
 
-            <!-- Load Configuration -->
-            <GroupBox Header="Load Configuration" Grid.Column="1">
+            <!-- Load Profile -->
+            <GroupBox Header="Load Profile" Grid.Column="1">
                 <StackPanel Orientation="Vertical">
-                    <ListBox ItemsSource="{Binding StoredDisplayConfigs, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}" Margin="0,0,0,5" />
+                    <ListBox ItemsSource="{Binding StoredProfiles, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}" Margin="0,0,0,5" />
                     <StackPanel Orientation="Horizontal">
                         <Button Content="Apply" Padding="10,0,10,0" Margin="0,0,5,0" Height="26" />
                         <Button Content="Delete" Padding="10,0,10,0" Height="26" />
